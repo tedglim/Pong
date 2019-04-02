@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class gameManagerScript : MonoBehaviour
 {
-    int p1Score = -1;
-    int p2Score = -1;
+    int p1Score = 0;
+    int p2Score = 0;
     public GUISkin skin;
     public Rigidbody2D mainBall;
     public GameObject p1;
@@ -19,8 +19,11 @@ public class gameManagerScript : MonoBehaviour
         {
             if (ScoredOn == "rightWall")
             {
+                Debug.Log("I hit: " + ScoredOn);
                 p1Score += 1;
-            } else {
+            } else if (ScoredOn == "leftWall")
+            {
+                Debug.Log("I hit: " + ScoredOn);
                 p2Score += 1;
             }
         }
@@ -59,7 +62,7 @@ public class gameManagerScript : MonoBehaviour
         }
         if (!isGameOver) {
             Reset();
-            mainBall.gameObject.SendMessage("StartDelay");
+            mainBall.gameObject.SendMessage("LaunchBall");
         }
     }
 
