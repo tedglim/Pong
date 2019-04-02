@@ -33,7 +33,7 @@ public class AIScript : MonoBehaviour
             } else {
                 rb.velocity = Vector2.zero;
             }
-            if(mainBall.velocity.y < 5f && mainBall.velocity.y > -5f && rb.position.y + paddleOffset < screenTop && rb.position.y - paddleOffset > screenBottom && mainBall.position.y < rb.position.y + paddleOffset && mainBall.position.y > rb.position.y - paddleOffset)
+            if(mainBall.velocity.y < 4f && mainBall.velocity.y > -4f && rb.position.y + paddleOffset < screenTop && rb.position.y - paddleOffset > screenBottom && mainBall.position.y < rb.position.y + paddleOffset && mainBall.position.y > rb.position.y - paddleOffset)
             {
                 rb.velocity = new Vector2(0, mainBall.velocity.y);
             }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SetupScript : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class SetupScript : MonoBehaviour
     public BoxCollider2D leftWall;
     public GameObject p1;
     public GameObject p2;
+    public Text title;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,5 +37,8 @@ public class SetupScript : MonoBehaviour
         p2Temp.x = mainCamera.ScreenToWorldPoint (new Vector3 (Screen.width - 75f, 0f, 0f)).x;
         p2.transform.position = p2Temp;
         p2.transform.eulerAngles = new Vector3 (0f, 0f, -90f);
+
+        title.text = "Best of 3";
+        title.transform.position = new Vector3 (Screen.width/2f, Screen.height - 60f , 0f);
     }
 }

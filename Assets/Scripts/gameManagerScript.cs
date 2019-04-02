@@ -1,17 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class gameManagerScript : MonoBehaviour
 {
     int p1Score = 0;
     int p2Score = 0;
-    public GUISkin skin;
-    public Rigidbody2D mainBall;
     public GameObject p1;
     public GameObject p2;
+    public Rigidbody2D mainBall;
     public int EndScore;
     public bool isGameOver = false;
+    public Text title;
+    public GUISkin skin;
 
     public void Score(string ScoredOn)
     {
@@ -19,11 +21,9 @@ public class gameManagerScript : MonoBehaviour
         {
             if (ScoredOn == "rightWall")
             {
-                Debug.Log("I hit: " + ScoredOn);
                 p1Score += 1;
             } else if (ScoredOn == "leftWall")
             {
-                Debug.Log("I hit: " + ScoredOn);
                 p2Score += 1;
             }
         }
@@ -32,20 +32,22 @@ public class gameManagerScript : MonoBehaviour
     void OnGUI ()
     {
         GUI.skin = skin;
-        GUI.Label (new Rect (Screen.width/2 - 150, 20, 100, 100), "" + p1Score);
-        GUI.Label (new Rect (Screen.width/2 + 150, 20, 100, 100), "" + p2Score);
+        GUI.Label (new Rect (Screen.width/2 - 150 - 20, 20, 100, 100), "" + p1Score);
+        GUI.Label (new Rect (Screen.width/2 + 150 - 20, 20, 100, 100), "" + p2Score);
         if(isGameOver)
         {
+            title.text = "";
             Reset();
             if(p1Score == EndScore)
             {
-                GUI.Label (new Rect (Screen.width/2 - 100, Screen.height/2 - 50, 400, 100), "WINNER");
+                GUI.Label (new Rect (Screen.width/2 - 100, Screen.height/2 - 75, 400, 100), "WINNER");
             } else if(p2Score == EndScore)
             {
-                GUI.Label (new Rect (Screen.width/2 - 150, Screen.height/2 - 50, 400, 100), "GAME OVER");
+                GUI.Label (new Rect (Screen.width/2 - 150, Screen.height/2 - 75, 400, 100), "GAME OVER");
             }
             if (GUI.Button(new Rect (Screen.width/2 - 121/2, 35, 121, 35), "Play Again"))
             {
+                title.text = "Best of 3";
                 p1Score = 0;
                 p2Score = 0;
                 isGameOver = false;

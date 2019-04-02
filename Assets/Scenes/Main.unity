@@ -167,6 +167,7 @@ MonoBehaviour:
   leftWall: {fileID: 904903029}
   p1: {fileID: 535917543}
   p2: {fileID: 1090079119}
+  title: {fileID: 597500194}
 --- !u!114 &31438498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,12 +180,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c69a68fc3a7af4c5ebd59b694f75764b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skin: {fileID: 11400000, guid: fe215bfd7b4b947f0b146ef5a9cee517, type: 2}
-  mainBall: {fileID: 726764012}
   p1: {fileID: 535917543}
   p2: {fileID: 1090079119}
-  EndScore: 1
+  mainBall: {fileID: 726764012}
+  EndScore: 2
   isGameOver: 0
+  title: {fileID: 597500194}
+  skin: {fileID: 11400000, guid: fe215bfd7b4b947f0b146ef5a9cee517, type: 2}
 --- !u!1 &175331117
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,6 +341,85 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7515001499938417050}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &597500192
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 597500193}
+  - component: {fileID: 597500195}
+  - component: {fileID: 597500194}
+  m_Layer: 5
+  m_Name: Title
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &597500193
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597500192}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 982407376}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 150}
+  m_SizeDelta: {x: 300, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &597500194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597500192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 30
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Title
+--- !u!222 &597500195
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597500192}
+  m_CullTransparentMesh: 0
 --- !u!1 &709940272
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,6 +659,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1085552801}
+  - {fileID: 597500193}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -598,7 +680,7 @@ GameObject:
   - component: {fileID: 1085552803}
   - component: {fileID: 1085552802}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Countdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -764,7 +846,7 @@ MonoBehaviour:
   bottomWall: {fileID: 1543718273}
   mainBall: {fileID: 726764012}
   rb: {fileID: 1090079123}
-  speed: 250
+  speed: 240
 --- !u!50 &1090079123
 Rigidbody2D:
   serializedVersion: 4
@@ -799,7 +881,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.3}
+  m_Offset: {x: 0, y: 0.325}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -810,7 +892,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.5, y: 0.2}
+  m_Size: {x: 2.55, y: 0.1}
   m_EdgeRadius: 0
 --- !u!1 &1456651814
 GameObject:
@@ -998,6 +1080,11 @@ PrefabInstance:
       propertyPath: countdown
       value: 
       objectReference: {fileID: 1085552802}
+    - target: {fileID: 7347489532604431347, guid: eff1d5b81776d4f01a48db9e2311143c,
+        type: 3}
+      propertyPath: speedX
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eff1d5b81776d4f01a48db9e2311143c, type: 3}
 --- !u!1001 &7515001499938417050
@@ -1080,12 +1167,17 @@ PrefabInstance:
     - target: {fileID: 7515001500128123504, guid: 3fcfe61da525a4047b8c2ec114315530,
         type: 3}
       propertyPath: m_Size.y
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7515001500128123504, guid: 3fcfe61da525a4047b8c2ec114315530,
         type: 3}
       propertyPath: m_Offset.y
-      value: 0.3
+      value: 0.325
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515001500128123504, guid: 3fcfe61da525a4047b8c2ec114315530,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2.55
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fcfe61da525a4047b8c2ec114315530, type: 3}

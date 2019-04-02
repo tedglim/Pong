@@ -57,7 +57,6 @@ public class MainBall : MonoBehaviour
         {
             rb.velocity = new Vector2(-speedX, -speedY);
         }
-        // LaunchBall();
     }
 
     void MaintainHorizontalVelocity()
@@ -80,7 +79,7 @@ public class MainBall : MonoBehaviour
     {
         if (hit.gameObject.tag == "Paddle")
         {
-            float velY = rb.velocity.y/2 + hit.rigidbody.velocity.y;
+            float velY = rb.velocity.y/2 + 2*hit.rigidbody.velocity.y/3;
             rb.velocity = new Vector2(rb.velocity.x, velY);
         }
     }
