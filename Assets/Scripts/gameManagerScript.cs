@@ -40,10 +40,10 @@ public class gameManagerScript : MonoBehaviour
             Reset();
             if(p1Score == EndScore)
             {
-                GUI.Label (new Rect (Screen.width/2 - 100, Screen.height/2 - 90, 400, 100), "WINNER");
+                GUI.Label (new Rect (Screen.width/2 - 100, Screen.height/2 - 100, 400, 100), "WINNER");
             } else if(p2Score == EndScore)
             {
-                GUI.Label (new Rect (Screen.width/2 - 150, Screen.height/2 - 90, 400, 100), "GAME OVER");
+                GUI.Label (new Rect (Screen.width/2 - 150, Screen.height/2 - 100, 400, 100), "GAME OVER");
             }
             if (GUI.Button(new Rect (Screen.width/2 - 121/2, 35, 121, 35), "Play Again"))
             {
