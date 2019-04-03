@@ -24,14 +24,14 @@ public class PaddleScript : MonoBehaviour
         float screenBottom = mainCamera.ScreenToWorldPoint (new Vector3(0, 0, 0)).y;
         if(Input.GetKey(up))
         {
-            rb.velocity = new Vector2(0f, speed);
+            rb.velocity = new Vector2(0f, speed * Time.deltaTime);
             if(rb.position.y + paddleOffset > screenTop)
             {
                 rb.position = new Vector2(rb.position.x, screenTop - paddleOffset);
             }
         } else if (Input.GetKey(down))
         {
-            rb.velocity = new Vector2(0f, -speed);
+            rb.velocity = new Vector2(0f, -speed * Time.deltaTime);
             if(rb.position.y - paddleOffset < screenBottom)
             {
                 rb.position = new Vector2(rb.position.x, screenBottom + paddleOffset);

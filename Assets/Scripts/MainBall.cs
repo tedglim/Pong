@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class MainBall : MonoBehaviour
 {
@@ -10,10 +11,12 @@ public class MainBall : MonoBehaviour
     public float speedY;
     public Text countdown;
     private int timer;
+    private AudioSource hitSound;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        hitSound = GetComponent<AudioSource>();
         LaunchBall();
     }
 
@@ -62,17 +65,25 @@ public class MainBall : MonoBehaviour
     void MaintainHorizontalVelocity()
     {
         float velX = rb.velocity.x;
+        float velY = rb.velocity.y;
         if (velX < (speedX - 1) && velX > (-speedX + 1) && velX != 0)
         {
             if (velX > 0)
             {
-                velX = speedX;
-                rb.velocity = new Vector2(velX, rb.velocity.y);
+                rb.velocity = new Vector2(speedX, velY);
             } else {
-                velX = -speedX;
-                rb.velocity = new Vector2(velX, rb.velocity.y);
+                rb.velocity = new Vector2(-speedX, velY);
             }
         }
+        if (velY < (speedY - 1) && velY > (-speedY + 1) && velY != 0)
+        {
+            if (velY > 0)
+            {
+                rb.velocity = new Vector2(velX, speedY);
+            } else {
+                rb.velocity = new Vector2(velX, -speedY);
+            }
+        }        
     }
 
     void OnCollisionEnter2D (Collision2D hit)
@@ -81,6 +92,8 @@ public class MainBall : MonoBehaviour
         {
             float velY = rb.velocity.y/2 + 2*hit.rigidbody.velocity.y/3;
             rb.velocity = new Vector2(rb.velocity.x, velY);
+            hitSound.pitch = Random.Range(.9f, 1.1f);
+            hitSound.Play();
         }
     }
 }
