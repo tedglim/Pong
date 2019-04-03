@@ -1,4 +1,6 @@
 # Pong
+![](PongPlay.gif)
+</br>
 This is a project for helping me learn Unity.</br>
 Implemented basic Pong game logic:</br>
 * Added directionality when paddle hits ball.</br>
